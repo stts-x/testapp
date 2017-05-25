@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="example.examples" version="0.1.0">
+  <name>Examples</name>
+  <description>
+    Example Tabris.js App
+  </description>
+  <author email="status123@bk.ru">
+    stts
+  </author>
+  <plugin name="cordova-plugin-geolocation" spec="2.4.3" />
+</widget>
