@@ -15,24 +15,35 @@ let page = new PluginPage('geo','cordova-plugin-geolocation',(parent)=>{
          let onError = function() {
          console.log('onError!');
          };*/
-        var onSuccess = function(position) {
-            textView.text='Latitude: '          + position.coords.latitude          + '\n' +
-                'Longitude: '         + position.coords.longitude         + '\n' +
-                'Altitude: '          + position.coords.altitude          + '\n' +
-                'Accuracy: '          + position.coords.accuracy          + '\n' +
-                'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-                'Heading: '           + position.coords.heading           + '\n' +
-                'Speed: '             + position.coords.speed             + '\n' +
-                'Timestamp: '         + position.timestamp                + '\n';
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log("navigator.geolocation works well");
+
+
+            // navigator.geolocation.watchPosition(onSuccess(), onError(),{ timeout: 30000 })
+        }
+        var onSuccess = (position) =>{
+            console.log('we are here',position.coords);
+            /*textView.text = 'Latitude: '  + position.coords.latitude      + '<br />' +
+             'Longitude: ' + position.coords.longitude     + '<br />';*/
+            /*textView.text='Latitude: '          + position.coords.latitude          + '\n' +
+             'Longitude: '         + position.coords.longitude         + '\n' +
+             'Altitude: '          + position.coords.altitude          + '\n' +
+             'Accuracy: '          + position.coords.accuracy          + '\n' +
+             'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+             'Heading: '           + position.coords.heading           + '\n' +
+             'Speed: '             + position.coords.speed             + '\n' +
+             'Timestamp: '         + position.timestamp                + '\n';*/
         };
 
         // onError Callback receives a PositionError object
         //
         function onError(error) {
-            alert('code: '    + error.code    + '\n' +
+            console.log('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
         }
-        console.log(navigator);
+        // navigator.geolocation.getCurrentPosition()
+        // console.log(navigator.geolocation.getCurrentPosition);
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
 });
