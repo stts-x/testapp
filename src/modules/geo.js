@@ -32,8 +32,8 @@ let page = new PluginPage('geo','cordova-plugin-geolocation',(parent)=>{
             alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
         }
-        console.log(navigator)
-        // navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        console.log(navigator);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     });
 });
 
